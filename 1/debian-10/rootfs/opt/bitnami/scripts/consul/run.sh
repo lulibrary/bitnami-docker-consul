@@ -14,7 +14,7 @@ set -o pipefail
 eval "$(consul_env)"
 
 EXEC="${CONSUL_BASE_DIR}/bin/consul"
-flags=("agent" "-config-dir" "${CONSUL_CONF_DIR}" "-log-file" "${CONSUL_LOG_FILE}")
+flags=("agent" "-config-dir" "${CONSUL_CONF_DIR}" "-log-file" "${CONSUL_LOG_FILE}" "-log-rotate-bytes" "${CONSUL_LOG_ROTATE_BYTES}" "-log-rotate-duration" "${CONSUL_LOG_ROTATE_DURATION}" "-log-rotate-max-files" "${CONSUL_LOG_ROTATE_MAX_FILES}")
 
 if [[ "${CONSUL_AGENT_MODE}" = "server" ]]; then
     flags+=("-server")
